@@ -2,9 +2,9 @@ package jhlz.code.design;
 
 /**
  * 单例模式
+ * 本地修改02
  */
 public class Singleton01 {
-    // volatile 保证指令不会重排序和可见性
     private volatile static Singleton01 INSTANCE = null;
 
     private Singleton01() {
