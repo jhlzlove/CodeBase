@@ -17,6 +17,13 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // https://mvnrepository.com/artifact/com.google.zxing/core
+    implementation group: 'com.google.zxing', name: 'core', version: '3.5.0'
+    // https://mvnrepository.com/artifact/cn.hutool/hutool-all
+    implementation 'cn.hutool:hutool-all:5.7.22'
+    implementation 'org.projectlombok:lombok:1.18.24'
+
+
 }
 
 test {

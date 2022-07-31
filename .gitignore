@@ -3,6 +3,7 @@
 package-lock.json
 .gradle/
 node_modules/
+out/
 
 # Log file
 *.log
