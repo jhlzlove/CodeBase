@@ -2,6 +2,7 @@ package jhlz.code.design;
 
 /**
  * 单例模式
+ * 远程修改01
  */
 public class Singleton01 {
     // volatile 保证指令不会重排序和可见性
