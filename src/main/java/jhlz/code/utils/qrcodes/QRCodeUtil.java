@@ -1,6 +1,6 @@
-package com.qq.bot.qrcodes;
+package jhlz.code.utils.qrcodes;
 
-import com.qq.bot.utils.StringUtil;
+import cn.hutool.core.util.StrUtil;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -121,7 +121,7 @@ public class QRCodeUtil {
         BufferedImage bufferedImage = RabbitMatrixToImageWriter.toBufferedImage(bitMatrix, config);
 
         //绘制中心logo
-        if (StringUtil.isNotEmpty(logoUrl)) {
+        if (StrUtil.isNotEmpty(logoUrl)) {
             //从网络连接读取图片
             URL url = new URL(logoUrl);
             InputStream inputStream = url.openStream();
@@ -197,7 +197,7 @@ public class QRCodeUtil {
         BufferedImage bufferedImage = RabbitMatrixToImageWriter.toBufferedImage(bitMatrix, config);
 
         //绘制中心logo
-        if (StringUtil.isNotEmpty(logoUrl)) {
+        if (StrUtil.isNotEmpty(logoUrl)) {
             //从网络连接读取图片
             URL url = new URL(logoUrl);
             InputStream inputStream = url.openStream();

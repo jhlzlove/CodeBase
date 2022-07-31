@@ -3,6 +3,7 @@ package jhlz.code.design;
 /**
  * 单例模式
  * 本地修改02
+ * 远程修改01
  */
 public class Singleton01 {
     private volatile static Singleton01 INSTANCE = null;

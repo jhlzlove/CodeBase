@@ -1,4 +1,4 @@
-package com.qq.bot.qrcodes;
+package jhlz.code.utils.qrcodes;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -54,7 +54,7 @@ public class RabbitMatrixToImageConfig {
     }
 
     //渐变参数初始化
-    public void initConfigGradientColor(int offColor,int onColor1, int onColor2) {
+    public void initConfigGradientColor(int offColor, int onColor1, int onColor2) {
         this.type = 2;
         this.offColor = offColor;
         this.onColor1 = onColor1;

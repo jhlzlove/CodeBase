@@ -1,4 +1,4 @@
-package com.qq.bot.qrcodes;
+package jhlz.code.utils.qrcodes;
 
 import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
