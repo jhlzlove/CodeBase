@@ -8,7 +8,6 @@ import java.io.File;
  * @desc: ReaderResources
  */
 public class ReaderResources {
-    // private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(ReaderResources.class);
 
     public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package jhlz.code.test.entity;
+package jhlz.code.entity;
 
 /**
  * @author clf
