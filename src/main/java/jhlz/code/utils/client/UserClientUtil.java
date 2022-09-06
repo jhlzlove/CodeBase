@@ -1,4 +1,4 @@
-package jhlz.code.utils.qrcodes.client;
+package jhlz.code.utils.client;
 
 import javax.servlet.http.HttpServletRequest;
 
