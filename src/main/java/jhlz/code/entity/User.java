@@ -1,4 +1,4 @@
-package jhlz.code.test.entity;
+package jhlz.code.entity;
 
 /**
  * @author clf
@@ -31,15 +31,17 @@ public class User {
         return id;
     }
 
-    public void setId(Long id) {
+    public User setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public User setUserName(String userName) {
         this.userName = userName;
+        return this;
     }
 }

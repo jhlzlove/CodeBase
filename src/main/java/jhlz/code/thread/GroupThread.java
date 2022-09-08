@@ -30,7 +30,7 @@ public class GroupThread implements Runnable {
         Thread t2 = new Thread(tg, new GroupThread(), "测试线程T2");
         t1.start();
         t2.start();
-        // 获取活动线程的总数，由于线程是动态的，无法确定精确
+        // 获取活动线程的总数，由于线程是动态的，无法精确确定
         System.out.println(tg.activeCount());
         // list() 方法获取所有的线程信息
         tg.list();

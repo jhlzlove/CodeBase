@@ -8,11 +8,11 @@ import java.io.File;
  * @desc: ReaderResources
  */
 public class ReaderResources {
-    // private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(ReaderResources.class);
 
     public static void main(String[] args) {
 
         File is = new File("src/main/resources/img");
+        
         System.out.println(is.toPath());
         System.out.println(is.getPath());
         File[] files = is.listFiles();

@@ -1,8 +1,5 @@
 package jhlz.code.utils.qrcodes;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * created by MikuNyanya on 2021/12/9 17:47
  * For the Reisen
@@ -16,32 +13,23 @@ public class RabbitMatrixToImageConfig {
      * 1.默认常规双色
      * 2.三色渐变
      */
-    @Getter
-    @Setter
     private int type = 1;
     /**
      * 前景色
      * 默认情况下生效
      */
-    @Getter
-    @Setter
     private int onColor;
     /**
      * 背景色
      * 任何情况下生效
      */
-    @Getter
-    @Setter
     private int offColor;
 
     /**
      * 渐变色列表
      */
-    @Getter
-    @Setter
     private int onColor1;
-    @Getter
-    @Setter
+
     private int onColor2;
 
     public RabbitMatrixToImageConfig() {
@@ -53,7 +41,7 @@ public class RabbitMatrixToImageConfig {
         this.offColor = offColor;
     }
 
-    //渐变参数初始化
+    // 渐变参数初始化
     public void initConfigGradientColor(int offColor, int onColor1, int onColor2) {
         this.type = 2;
         this.offColor = offColor;
@@ -70,7 +58,7 @@ public class RabbitMatrixToImageConfig {
     }
 
     int getBufferedImageColorModel() {
-        //类型可于java api的BufferedImage中看到
+        // 类型可于java api的BufferedImage中看到
         if (this.onColor == -16777216 && this.offColor == -1) {
             return 12;
         } else {
@@ -80,5 +68,45 @@ public class RabbitMatrixToImageConfig {
 
     private static boolean hasTransparency(int argb) {
         return (argb & -16777216) != -16777216;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getOnColor() {
+        return onColor;
+    }
+
+    public void setOnColor(int onColor) {
+        this.onColor = onColor;
+    }
+
+    public int getOffColor() {
+        return offColor;
+    }
+
+    public void setOffColor(int offColor) {
+        this.offColor = offColor;
+    }
+
+    public int getOnColor1() {
+        return onColor1;
+    }
+
+    public void setOnColor1(int onColor1) {
+        this.onColor1 = onColor1;
+    }
+
+    public int getOnColor2() {
+        return onColor2;
+    }
+
+    public void setOnColor2(int onColor2) {
+        this.onColor2 = onColor2;
     }
 }

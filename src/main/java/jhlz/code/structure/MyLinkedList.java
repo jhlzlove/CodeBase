@@ -12,10 +12,36 @@ public class MyLinkedList<T> {
 
     }
 
+    /**
+     * 元素个数
+     *
+     * @return size()
+     */
     public int size() {
         return size;
     }
 
+    private void linkLast(T e) {
+        final MyNode<T> l = last;
+        // 构造新数据结点
+        MyNode<T> lastNode = new MyNode<>(l, e, null);
+        // 新元素赋值给最后一个结点
+        last = lastNode;
+        // 如果最后一个元素为 null，那么链表没有任何结点
+        if (l == null) {
+            //
+            first = lastNode.prev;
+        } else {
+            l.next = lastNode;
+        }
+        size++;
+    }
+
+    /**
+     * 添加第一个元素
+     *
+     * @param e 添加的一个元素
+     */
     private void linkFirst(T e) {
         final MyNode<T> f = first;
 
@@ -32,10 +58,20 @@ public class MyLinkedList<T> {
         size++;
     }
 
+    /**
+     * 获取第一个元素
+     *
+     * @return
+     */
     public T getFirst() {
         return first.item;
     }
 
+    /**
+     * 获取链表第一个元素
+     *
+     * @return
+     */
     public T getLast() {
         return last.item;
     }
@@ -43,7 +79,6 @@ public class MyLinkedList<T> {
     public void add(T e) {
         linkFirst(e);
     }
-
 
     /**
      * 元素结点结构
