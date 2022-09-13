@@ -1,7 +1,7 @@
 package jhlz.code.controller;
 
 import jhlz.code.entity.Client;
-import jhlz.code.utils.qrcodes.client.UserClientUtil;
+import jhlz.code.utils.client.UserClientUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
