@@ -1,4 +1,4 @@
-package jhlz.code.entity;
+package jhlz.code.feature.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +15,13 @@ public class Apple {
     private String color;
     private Double weight;
 
+    /**
+     * 思考一下，为什么 这里 使用 static 呢？
+     * 很简单，不写编译器直接报错。非静态引用在静态上下文中是不能使用的
+     *
+     * @param apple
+     * @return
+     */
     public static boolean isGreenApple(Apple apple) {
         return "green".equals(apple.getColor());
     }
@@ -23,7 +30,4 @@ public class Apple {
         return apple.getWeight() > 150;
     }
 
-    public static boolean accept() {
-        return true;
-    }
 }

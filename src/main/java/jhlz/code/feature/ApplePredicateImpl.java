@@ -1,9 +1,9 @@
 package jhlz.code.feature;
 
-import jhlz.code.entity.Apple;
+import jhlz.code.feature.entity.Apple;
 
 /**
- * ApplePredicateImpl: 函数式接口实现
+ * ApplePredicateImpl: 自定义函数式接口实现
  *
  * @author jhlz
  * @since 2022/9/13 16:03:19
