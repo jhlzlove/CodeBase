@@ -31,3 +31,4 @@ fn dangle() -> String {
     let s = String::from("任凭世人笑我癫，狂叹红尘游世间。");
     s
 }
+

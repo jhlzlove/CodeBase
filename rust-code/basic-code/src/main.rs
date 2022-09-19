@@ -11,6 +11,8 @@ fn main() {
         18, String::from("道域"), String::from("2008-10-1"));
 
     println!("{:?}", u);
+
+    println!("{}", calculate_length(&String::from("江湖浪子楚凛風")));
 }
 
 fn hashmap_about() {
@@ -23,4 +25,17 @@ fn hashmap_about() {
     map.entry("k").or_insert(90);
     map.entry("purple").or_insert(99);
     println!("{:?}", map);
+}
+
+/// 解引用
+fn reference() {
+
+    let a = 5;
+    let b = &a;
+    assert_eq!(5, a);
+    assert_eq!(5, *b);
+}
+
+fn calculate_length(str: &String) -> usize {
+    str.len()
 }
