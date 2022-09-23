@@ -1,4 +1,4 @@
-/**
+/*
 // 内存使用情况
 console.log(process.memoryUsage());
 // Node 版本
@@ -16,20 +16,5 @@ console.log(process.env.USERPROFILE);
 // 返回参数的值，默认返回
 console.log(process.argv);
 console.log(process.argv0);
-console.log(process.pid);
-*/
-/* setTimeout(() => {
-    // 程序启动花费的时间
-    console.log(process.uptime());
-}, 5000) */
+console.log(process.pid);*/
 
-/* process.on("exit", (code) => {
-    console.log("exit " + code);
-})
-
-process.on("beforeExit", (code) => {
-    console.log("beforeExit" + code);
-})
-
-console.log("代码执行完毕");
-process.exit() */
