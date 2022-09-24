@@ -1,8 +1,14 @@
-# rust-analyzer 插件只能识别根目录的 rust 项目，使用 workspace 定义嵌套成员
+[package]
+name = "rust-code"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
 [workspace]
 
-# 嵌套 rust 子项目
 members = [
-    "basic-code",
-    "closure"
+    "src/basic"
 ]
