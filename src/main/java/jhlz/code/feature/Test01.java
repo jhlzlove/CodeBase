@@ -15,13 +15,13 @@ public class Test01 {
     public static void main(String[] args) {
         String[] array = {"诗酒趁年华", "酒不醉人人自醉"};
         Stream<String> strList = Arrays.stream(array);
+        // 检查组成数组的字符有哪些
         System.out.println(strList.map(s -> s.split("")).flatMap(Arrays::stream).distinct().collect(Collectors.toList()));
 
         List<Integer> numList01 = Arrays.asList(1, 2, 3, 4, 5);
         List<Integer> numList02 = Arrays.asList(7, 8);
 
         // 两个流可以组成的元组
-
         System.out.println(numList01.stream().map(n -> n * n).collect(Collectors.toList()));
 
         // iterate 创建无限流

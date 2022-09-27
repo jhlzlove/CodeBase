@@ -11,6 +11,15 @@ import java.util.concurrent.Future;
  */
 public class FutureTest {
     public static void main(String[] args) {
+        Shop shop = new Shop();
+        long startTime = System.nanoTime();
+
+        shop.findPricesByCompletableFuture("MyFavoriteShop");
+        System.out.println((System.nanoTime() - startTime) / 1000_000 + " msecs");
+
+    }
+
+    private static void completableFutureTest() {
         Shop shop = new Shop("Shop");
 
         long startTime = System.nanoTime();
