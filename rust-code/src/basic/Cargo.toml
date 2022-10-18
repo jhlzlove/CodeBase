@@ -10,5 +10,5 @@ edition = "2021"
 log = "0.4.17"
 # 只有上面的是看不到日志输出的，需要配合日志库使用
 # 官方也有推荐：https://github.com/rust-lang/log#in-executables
-# 这里使用 env_logger
+# 这里使用 env_logger 实现的框架
 env_logger = "0.9.1"
