@@ -1,6 +1,6 @@
 package jhlz.code.thread;
 
-import jhlz.code.entity.User;
+import jhlz.code.web.entity.UserModel;
 
 import java.time.Instant;
 
@@ -10,7 +10,7 @@ import java.time.Instant;
  * @desc: 使用 stop() 会出现强行终止线程，导致数据不一致。
  */
 public class StopThread {
-    private static User u = new User();
+    private static UserModel u = new UserModel();
 
     /**
      * 改变 u 的值
@@ -27,7 +27,7 @@ public class StopThread {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    u.setUserName(String.valueOf(v));
+                    u.setName(String.valueOf(v));
                 }
                 // 重要的工作已经完成，让出 CPU 资源，给其它重要线程更多的工作机会
                 Thread.yield();
@@ -43,7 +43,7 @@ public class StopThread {
         public void run() {
             while (true) {
                 synchronized (u) {
-                    if (u.getId() != Integer.parseInt(u.getUserName())) {
+                    if (u.getId() != Integer.parseInt(u.getName())) {
                         System.out.println(u.toString());
                     }
                 }

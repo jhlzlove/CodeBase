@@ -11,7 +11,6 @@ edition = "2021"
 
 members = [
     "src/basic",
-    "src/async_future",
     "src/server",
     "src/draw"
 ]

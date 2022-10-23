@@ -1,4 +1,4 @@
-package jhlz.code.entity;
+package jhlz.code.web.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
