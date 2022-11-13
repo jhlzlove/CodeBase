@@ -1,6 +1,6 @@
 package jhlz.code.thread;
 
-import jhlz.code.web.entity.UserModel;
+import jhlz.code.entity.UserModel;
 
 import java.time.Instant;
 
