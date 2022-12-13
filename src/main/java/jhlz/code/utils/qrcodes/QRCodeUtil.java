@@ -1,6 +1,5 @@
 package jhlz.code.utils.qrcodes;
 
-import cn.hutool.core.util.StrUtil;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -18,6 +17,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * created by MikuNyanya on 2021/12/6 11:41
@@ -25,10 +25,10 @@ import java.util.Map;
  * 二维码工具
  */
 public class QRCodeUtil {
-    //默认二维码尺寸
+    // 默认二维码尺寸
     public static final int QRCODE_WIDTH_DEFAULE = 300;
     public static final int QRCODE_HEIGHT_DEFAULE = 300;
-    //默认二维码颜色
+    // 默认二维码颜色
     public static final Color ONCOLOR_DEFAULT = new Color(0xFF000001);
     public static final Color OFFCOLOR_DEFAULT = new Color(0xFFFFFFFF);
 
@@ -100,11 +100,11 @@ public class QRCodeUtil {
      * @throws IOException
      */
     public static BufferedImage createQRCode(String content, int width, int height, Color onColor, Color offColor, String logoUrl) throws WriterException, IOException {
-        //颜色默认
-        //https://www.iteye.com/blog/ququjioulai-2254382
-        //如果使用的是默认的空格白0xFFFFFFFF,二维码黑0xFF000000,就会使用BufferedImage.TYPE_BYTE_BINARY类型,即,只有黑白二色的位图
-        //这会导致logo也变成黑白的
-        //所以前景色改为不是黑色，但跟黑色差不多的颜色
+        // 颜色默认
+        // https://www.iteye.com/blog/ququjioulai-2254382
+        // 如果使用的是默认的空格白0xFFFFFFFF,二维码黑0xFF000000,就会使用BufferedImage.TYPE_BYTE_BINARY类型,即,只有黑白二色的位图
+        // 这会导致logo也变成黑白的
+        // 所以前景色改为不是黑色，但跟黑色差不多的颜色
         if (null == onColor) {
             onColor = ONCOLOR_DEFAULT;
         }
@@ -117,16 +117,16 @@ public class QRCodeUtil {
         // 设置位矩阵转图片的参数
         RabbitMatrixToImageConfig config = new RabbitMatrixToImageConfig(onColor.getRGB(), offColor.getRGB());
 
-        //转化为图片对象
+        // 转化为图片对象
         BufferedImage bufferedImage = RabbitMatrixToImageWriter.toBufferedImage(bitMatrix, config);
 
-        //绘制中心logo
-        if (StrUtil.isNotEmpty(logoUrl)) {
-            //从网络连接读取图片
+        // 绘制中心logo
+        if (Objects.nonNull(logoUrl) && !logoUrl.isBlank()) {
+            // 从网络连接读取图片
             URL url = new URL(logoUrl);
             InputStream inputStream = url.openStream();
             BufferedImage logoImg = ImageIO.read(inputStream);
-            //绘制logo
+            // 绘制logo
             qrLogoDraw(bufferedImage, logoImg, offColor);
         }
 
@@ -193,16 +193,16 @@ public class QRCodeUtil {
         RabbitMatrixToImageConfig config = new RabbitMatrixToImageConfig(ONCOLOR_DEFAULT.getRGB(), offColor.getRGB());
         config.initConfigGradientColor(offColor.getRGB(), onColorStart.getRGB(), onColorEnd.getRGB());
 
-        //转化为图片对象
+        // 转化为图片对象
         BufferedImage bufferedImage = RabbitMatrixToImageWriter.toBufferedImage(bitMatrix, config);
 
-        //绘制中心logo
-        if (StrUtil.isNotEmpty(logoUrl)) {
-            //从网络连接读取图片
+        // 绘制中心logo
+        if (Objects.nonNull(logoUrl) && !logoUrl.isBlank()) {
+            // 从网络连接读取图片
             URL url = new URL(logoUrl);
             InputStream inputStream = url.openStream();
             BufferedImage logoImg = ImageIO.read(inputStream);
-            //绘制logo
+            // 绘制logo
             qrLogoDraw(bufferedImage, logoImg, offColor);
         }
 
@@ -269,9 +269,9 @@ public class QRCodeUtil {
         return os.toByteArray();
     }
 
-    //生成BitMatrix
+    // 生成BitMatrix
     private static BitMatrix initBitMatrix(String content, int width, int height) throws WriterException {
-        //尺寸边界校验
+        // 尺寸边界校验
         if (width <= 0) {
             width = QRCODE_WIDTH_DEFAULE;
         }
@@ -285,7 +285,7 @@ public class QRCodeUtil {
         hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
         // 设置纠错等级L/M/Q/H,纠错等级越高越不易识别，最高等级H
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.Q);
-        //白边 可设置范围为0-10，但仅四个变化0 1(2) 3(4 5 6) 7(8 9 10)
+        // 白边 可设置范围为0-10，但仅四个变化0 1(2) 3(4 5 6) 7(8 9 10)
         hints.put(EncodeHintType.MARGIN, 1);
         // 生成图片类型为QRCode
         BarcodeFormat format = BarcodeFormat.QR_CODE;
@@ -293,55 +293,55 @@ public class QRCodeUtil {
         return new MultiFormatWriter().encode(content, format, width, height, hints);
     }
 
-    //绘制二维码中间的logo
+    // 绘制二维码中间的logo
     private static BufferedImage qrLogoDraw(BufferedImage qrImg, BufferedImage logoImg, Color bgColor) {
-        //读取二维码图片，并构建绘图对象
+        // 读取二维码图片，并构建绘图对象
         Graphics2D g2 = qrImg.createGraphics();
 
         int matrixWidth = qrImg.getWidth();
         int matrixHeigh = qrImg.getHeight();
 
-        //绘制坐标 使其居中
+        // 绘制坐标 使其居中
         int x = matrixWidth / 5 * 2;
         int y = matrixHeigh / 5 * 2;
 
-        //logo尺寸
+        // logo尺寸
         int logoWidth = matrixWidth / 5;
         int logoHeigh = matrixHeigh / 5;
 
-        //从角落圆弧的宽度
+        // 从角落圆弧的宽度
         int arcw = 10;
-        //从角落圆弧的高度
+        // 从角落圆弧的高度
         int arch = 10;
 
-        //圆形logo
+        // 圆形logo
 //        arcw = logoWidth;
 //        arch = logoHeigh;
 //        Ellipse2D.Double shape = new Ellipse2D.Double(x, y, arcw, arch);
 //        g2.setClip(shape);
-        //不使用锯齿
+        // 不使用锯齿
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        //开始绘制图片
-        g2.drawImage(logoImg, x, y, logoWidth, logoHeigh, null);//绘制
-        //开始绘制周围边框
-        //默认为白色周边背景
+        // 开始绘制图片
+        g2.drawImage(logoImg, x, y, logoWidth, logoHeigh, null);// 绘制
+        // 开始绘制周围边框
+        // 默认为白色周边背景
         if (null == bgColor) {
             bgColor = OFFCOLOR_DEFAULT;
         }
-        //白色边框宽度
+        // 白色边框宽度
         int roundW = 8;
 
         BasicStroke stroke = new BasicStroke(roundW, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
         g2.setStroke(stroke);// 设置笔画对象
-        //指定弧度的圆角矩形
+        // 指定弧度的圆角矩形
         RoundRectangle2D.Float round = new RoundRectangle2D.Float(x, y, logoWidth, logoHeigh, arcw, arch);
         g2.setColor(bgColor);
         g2.draw(round);// 绘制圆弧矩形
 
-        //绘制logo灰色线条边框
-        //线条粗细
+        // 绘制logo灰色线条边框
+        // 线条粗细
         int borderWidth = 1;
-        //线条修正数值，由于存在周边留白，想要使线条贴着logo，需要根据上线的白色边框进行修正
+        // 线条修正数值，由于存在周边留白，想要使线条贴着logo，需要根据上线的白色边框进行修正
         int borderFix = roundW / 2;
 
         BasicStroke stroke2 = new BasicStroke(borderWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
