@@ -1,8 +1,5 @@
 package jhlz.code.feature.future;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -18,9 +15,25 @@ import java.util.stream.Collectors;
  */
 public class Shop {
 
-    @Getter
-    @Setter
     private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public Shop setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public Shop setRandom(Random random) {
+        this.random = random;
+        return this;
+    }
 
     public Shop() {
     }

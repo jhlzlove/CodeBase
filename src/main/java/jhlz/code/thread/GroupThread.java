@@ -11,7 +11,8 @@ public class GroupThread implements Runnable {
     @Override
     public void run() {
         // 组名+线程名
-        String groupName = Thread.currentThread().getThreadGroup().getName() + "-" + Thread.currentThread().getName();
+        String groupName =
+                Thread.currentThread().getThreadGroup().getName() + "-" + Thread.currentThread().getName();
         while (true) {
             System.out.println("I am " + groupName);
             try {
