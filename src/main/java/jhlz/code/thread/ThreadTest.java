@@ -1,7 +1,12 @@
-package jhlz.code.thread;/**
+package jhlz.code.thread;
+
+/**
  * @author jhlz
  * @since 2023/5/19 10:38
- * @version 
  */
 public class ThreadTest {
+
+    public static void main(String[] args) {
+
+    }
 }
