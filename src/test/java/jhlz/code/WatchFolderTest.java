@@ -1,18 +1,22 @@
 package jhlz.code;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.List;
 import java.util.Objects;
 
 /**
- * 监听文件夹动态：新建、修改、删除（移动）
- *
  * @author jhlz
- * @since 2023/5/18 16:14
+ * @since 1.0
  */
-public class WatchFolder {
-    public static void main(String[] args) {
+public class WatchFolderTest {
+    /**
+     * test: watch_realtime example
+     */
+    @Test
+    public void watchFolderTest() {
         String folderPath = "D:\\";
         try {
             // 创建监听服务
