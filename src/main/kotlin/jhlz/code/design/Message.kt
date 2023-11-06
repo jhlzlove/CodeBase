@@ -5,4 +5,8 @@ package jhlz.code.design
  * @since 1.0
  */
 interface Message {
+
+    fun send(message: String)
+
+    fun printMessage()
 }
