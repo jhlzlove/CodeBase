@@ -1,7 +1,0 @@
-{
-  "config": {
-    "commitizen": {
-      "czConfig": "./cz.config.js"
-    }
-  }
-}
