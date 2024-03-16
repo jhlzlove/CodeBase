@@ -4,6 +4,7 @@ package-lock.json
 .gradle/
 node_modules/
 out/
+target
 
 # Log file
 *.log
